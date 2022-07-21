@@ -25,7 +25,7 @@ export default function Create() {
   return (
     <>
       <Head>
-        <title>TODO New</title>
+        <title>Todo New</title>
       </Head>
       <Header />
       <Container mt="16px">
