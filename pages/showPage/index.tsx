@@ -16,7 +16,7 @@ export default function ShowPage() {
   return (
     <>
       <Header />
-      <Stack mt="20px" direction={["column", "row"]} mb='100px'>
+      <Stack mt="20px" direction={["column", "row"]} mb="100px">
         <Box w="630px" ml="99px">
           <Text
             fontSize="28px"
@@ -25,18 +25,18 @@ export default function ShowPage() {
             color="blackAlpha.800"
           >
             SHOW TODO
-            </Text>
+          </Text>
           <Box
             borderWidth="1px"
             borderColor="blackAlpha.800"
             borderRadius="10px"
             p="10px"
             mt="15px"
-            minHeight="600px"
+            minHeight="630px"
           >
             <Box p="10px">
               <FormLabel
-                m="16px 0 0 0"
+                m="0"
                 fontSize="24px"
                 fontWeight="bold"
                 lineHeight="24px"
@@ -46,7 +46,7 @@ export default function ShowPage() {
                 TITLE
               </FormLabel>
               <Input
-                h="40px"
+                h="30px"
                 fontSize="20px"
                 fontWeight="bold"
                 color="blackAlpha.800"
@@ -81,25 +81,24 @@ export default function ShowPage() {
                 bgColor="green.300"
                 borderWidth="1px"
                 borderColor="blackAlpha.800"
-                iconSpacing='10px'
+                iconSpacing="10px"
                 rightIcon={<PenIcon />}
               >
                 Edit
-            
               </Button>
 
-              <Stack>
+              <Flex direction="column">
                 <Text fontWeight="bold">Create</Text>
                 <Text fontWeight="bold" fontSize="20px">
                   2020-11-8 18:55
                 </Text>
-              </Stack>
-              <Stack>
+              </Flex>
+              <Flex direction="column">
                 <Text fontWeight="bold">Update</Text>
                 <Text fontWeight="bold" fontSize="20px">
                   2020-11-8 18:55
                 </Text>
-              </Stack>
+              </Flex>
             </HStack>
           </Box>
         </Box>
