@@ -16,7 +16,7 @@ export default function ShowPage() {
   return (
     <>
       <Header />
-      <Stack mt="20px" direction={["column", "row"]}>
+      <Stack mt="20px" direction={["column", "row"]} mb='100px'>
         <Box w="630px" ml="99px">
           <Text
             fontSize="28px"
@@ -25,7 +25,7 @@ export default function ShowPage() {
             color="blackAlpha.800"
           >
             SHOW TODO
-          </Text>
+            </Text>
           <Box
             borderWidth="1px"
             borderColor="blackAlpha.800"
@@ -51,7 +51,7 @@ export default function ShowPage() {
                 fontWeight="bold"
                 color="blackAlpha.800"
                 border="none"
-              ></Input>
+              />
             </Box>
 
             <Box p="10px">
@@ -72,7 +72,7 @@ export default function ShowPage() {
                 fontWeight="bold"
                 color="blackAlpha.800"
                 border="none"
-              ></Textarea>
+              />
             </Box>
             <HStack spacing="60px" p="10px" pb="20px">
               <Button
