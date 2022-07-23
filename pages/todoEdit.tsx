@@ -70,7 +70,7 @@ export default function TodoEdit() {
               borderWidth="1px"
               borderColor="blackAlpha.800"
               borderRadius="10px"
-            ></Input>
+            />
           </FormControl>
           <FormControl>
             <FormLabel
@@ -92,7 +92,7 @@ export default function TodoEdit() {
               borderWidth="1px"
               borderColor="blackAlpha.800"
               borderRadius="10px"
-            ></Textarea>
+            />
           </FormControl>
           <Flex w="100%">
             <Flex
