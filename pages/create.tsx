@@ -74,7 +74,7 @@ export default function Create() {
               borderWidth="1px"
               borderColor="blackAlpha.800"
               borderRadius="10px"
-            ></Input>
+            />
           </FormControl>
           <FormControl>
             <FormLabel
