@@ -1,10 +1,14 @@
 import { Layout } from "../components/Layout";
+
 import {
 	DeleteIcon,
 	EditIcon,
 	ExternalLinkIcon,
 	SearchIcon,
+	ChevronLeftIcon,
+	ChevronRightIcon,
 } from "@chakra-ui/icons";
+
 import {
 	Center,
 	Container,
@@ -27,8 +31,19 @@ import {
 	Button,
 	Td,
 	Tbody,
+	ButtonProps,
 } from "@chakra-ui/react";
+
 import { useState } from "react";
+
+import {
+	Paginator,
+	// Container,
+	Previous,
+	Next,
+	PageGroup,
+	usePaginator,
+} from "chakra-paginator";
 
 const Top = () => {
 	const [input, setInput] = useState("Text");
@@ -39,6 +54,33 @@ const Top = () => {
 	const [selectFive, setSelectFive] = useState("high");
 	const [selectSix, setSelectSix] = useState("low");
 	const [buttonOne, setbuttonOne] = useState("NOT STARTED");
+
+	const pagesQuantity = 5;
+	const { currentPage, setCurrentPage } = usePaginator({
+		initialState: { currentPage: 1 },
+	});
+
+	const normalStyles: ButtonProps = {
+		w: "40px",
+		fontSize: "sm",
+		_hover: {
+			bg: "green.300",
+		},
+	};
+
+	const activeStyles: ButtonProps = {
+		w: "40px",
+		fontSize: "sm",
+		_hover: {
+			bg: "green.300",
+		},
+	};
+
+	const separatorStyles: ButtonProps = {
+		w: 7,
+		bg: "green.200",
+	};
+
 	return (
 		<Layout title="TOP">
 			<Container mt={`16px`}>
@@ -469,6 +511,27 @@ const Top = () => {
 								</Tbody>
 							</Table>
 						</TableContainer>
+						<Paginator
+							pagesQuantity={pagesQuantity}
+							currentPage={currentPage}
+							onPageChange={setCurrentPage}
+							activeStyles={activeStyles}
+							normalStyles={normalStyles}
+							separatorStyles={separatorStyles}>
+							<Flex
+								alignItems={`center`}
+								justifyContent={`space-between`}
+								w={`352px`}
+								p={`12px`}>
+								<Previous>
+									<ChevronLeftIcon />
+								</Previous>
+								<PageGroup isInline align={`center`} />
+								<Next>
+									<ChevronRightIcon />
+								</Next>
+							</Flex>
+						</Paginator>
 					</VStack>
 				</Center>
 			</Container>
