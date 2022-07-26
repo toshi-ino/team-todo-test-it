@@ -86,16 +86,17 @@ const Top = () => {
 			<Container mt={`16px`}>
 				<Center>
 					<VStack>
-						<Flex w={`1080px`}>
+						<Flex w={`1080px`} mb={`33px`}>
 							<Stack>
 								<Text
 									fontSize="28px"
 									fontWeight="bold"
 									lineHeight="33px"
-									color="blackAlpha.800">
+									color="blackAlpha.800"
+									mb={`15px`}>
 									TODO LIST
 								</Text>
-								<Flex w={`624px`} mt={`15px`}>
+								<Flex w={`624px`}>
 									<Text fontSize={`18px`} fontWeight={`bold`} w={`165px`}>
 										SEARCH
 									</Text>
@@ -146,11 +147,7 @@ const Top = () => {
 								</Flex>
 							</Stack>
 							<Spacer />
-							<Stack
-								mt={`16px`}
-								spacing={`16px`}
-								direction="row"
-								align="center">
+							<Stack spacing={`16px`} direction="row" align="center">
 								<IconButton
 									bgColor="yellow.300"
 									aria-label="Delete"
@@ -184,7 +181,7 @@ const Top = () => {
 							</Stack>
 						</Flex>
 						<TableContainer w={`1080px`}>
-							<Table variant="simple">
+							<Table variant="simple" mb={`16px`}>
 								<Thead bgColor={`green.300`}>
 									<Tr>
 										<Th
