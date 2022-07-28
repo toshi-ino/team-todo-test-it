@@ -45,13 +45,13 @@ export default function ShowPage() {
               >
                 TITLE
               </FormLabel>
-              <Input
+              <Text
                 h="30px"
                 fontSize="20px"
                 fontWeight="bold"
                 color="blackAlpha.800"
                 border="none"
-              />
+              ></Text>
             </Box>
 
             <Box p="10px">
@@ -65,14 +65,14 @@ export default function ShowPage() {
               >
                 DETAIL
               </FormLabel>
-              <Textarea
+              <Text
                 h="350px"
                 mt="4px"
                 fontSize="24px"
                 fontWeight="bold"
                 color="blackAlpha.800"
                 border="none"
-              />
+              ></Text>
             </Box>
             <HStack spacing="60px" p="10px" pb="20px">
               <Button
