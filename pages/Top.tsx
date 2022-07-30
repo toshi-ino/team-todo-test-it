@@ -96,10 +96,10 @@ const Top = () => {
 									TODO LIST
 								</Text>
 								<Flex w={`624px`}>
-									<Text fontSize={`18px`} fontWeight={`bold`} w={`165px`}>
+									<Text fontSize={`18px`} fontWeight={`bold`} w={`180px`}>
 										SEARCH
 									</Text>
-									<Text fontSize={`18px`} fontWeight={`bold`} w={`160px`}>
+									<Text fontSize={`18px`} fontWeight={`bold`} w={`180px`}>
 										STATUS
 									</Text>
 									<Text fontSize={`18px`} fontWeight={`bold`}>
