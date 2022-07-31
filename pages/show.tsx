@@ -1,4 +1,4 @@
-import { Header } from "../../components/Header";
+import { Header } from "../components/Header";
 import {
   Input,
   Textarea,
@@ -131,7 +131,7 @@ export default function ShowPage() {
             </Button>
             <Modal isOpen={isOpen} onClose={onClose}>
               <ModalOverlay />
-              <ModalContent w="390px" border="1px solid black" mt="150px">
+              <ModalContent w="390px" border="1px solid black" mt="150px" borderRadius="10px">
                 <ModalHeader fontWeight="bold" fontSize="30px" pt="5px" pb="0">
                   Comment
                 </ModalHeader>
