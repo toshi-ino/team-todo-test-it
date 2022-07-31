@@ -1,18 +1,10 @@
-import {
-	DeleteIcon,
-	EditIcon,
-	ExternalLinkIcon,
-	SearchIcon,
-	ChevronLeftIcon,
-	ChevronRightIcon,
-} from "@chakra-ui/icons";
+import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 
 import {
 	Center,
 	Container,
 	Flex,
 	HStack,
-	Stack,
 	Text,
 	VStack,
 	TableContainer,
@@ -24,6 +16,7 @@ import {
 	Td,
 	Tbody,
 	ButtonProps,
+	Stack,
 } from "@chakra-ui/react";
 
 import { Layout } from "../components/Layout";
@@ -66,33 +59,32 @@ const Trash = () => {
 		<Layout title="Trash">
 			<Container>
 				<Center>
-					<VStack>
-						<Flex w={`1080px`} mb={`33px`}>
-							<Stack>
+					<VStack h={`700px`}>
+						<Flex w={`1080px`} h={"88px"}>
+							<Flex w={`1080px`} justify={"space-between"}>
 								<Text
+									marginTop={`24px`}
 									fontSize="28px"
 									fontWeight="bold"
 									lineHeight="33px"
-									color="blackAlpha.800"
-									mb={`15px`}
-									mt={`16px`}>
+									color="blackAlpha.800">
 									TRASH
 								</Text>
-								<Flex w={`1080px`} justify={"end"}>
+								<Flex justify={"end"} align={"center"}>
 									<Button
-										color={`blackAlpha.800`}
+										color={`white`}
 										variant={`outline`}
 										bgColor={`red.500`}
 										w={`112px`}
 										h={`40px`}
 										borderRadius={`3xl`}
 										fontSize={`18px`}
-										fontFamily={`roboto`}
+										fontFamily={`Gothic A1`}
 										fontWeight={`bold`}>
 										Delete all
 									</Button>
 									<Button
-										color={`blackAlpha.800`}
+										color={`white`}
 										variant={`outline`}
 										bgColor={`blue.300`}
 										w={`112px`}
@@ -105,13 +97,13 @@ const Trash = () => {
 										Resotre all
 									</Button>
 									<Button
-										color={`blackAlpha.800`}
+										color={`white`}
 										variant={`outline`}
 										bgColor={`green.300`}
 										w={`112px`}
 										h={`40px`}
 										borderRadius={`3xl`}
-										borderColor={`black.800`}
+										borderColor={`black.700`}
 										fontSize={`18px`}
 										fontFamily={`roboto`}
 										fontWeight={`bold`}
@@ -119,54 +111,58 @@ const Trash = () => {
 										Back
 									</Button>
 								</Flex>
-							</Stack>
+							</Flex>
 						</Flex>
-						<TableContainer w={`1080px`} h={`392px`}>
-							<Table variant="simple" mb={`16px`} size={"sm"}>
-								<Thead bgColor={`green.300`}>
+						<TableContainer w={`1080px`} h={`420px`}>
+							<Table variant="simple" size={"sm"}>
+								<Thead bgColor={`green.300`} h={`56px`}>
 									<Tr>
 										<Th
 											fontFamily={`roboto`}
 											fontWeight={`bold`}
 											fontSize={`24px`}
 											color={`blackAlpha.800`}
-											py={`19px`}
+											pt={`20px`}
 											w={`384px`}>
 											Task
 										</Th>
 										<Th
+											textAlign={`center`}
 											fontFamily={`roboto`}
 											fontWeight={`bold`}
 											fontSize={`24px`}
 											color={`blackAlpha.800`}
-											py={`19px`}
+											pt={`20px`}
 											w={`174px`}>
 											Status
 										</Th>
 										<Th
+											textAlign={`center`}
 											fontFamily={`roboto`}
 											fontWeight={`bold`}
 											fontSize={`24px`}
 											color={`blackAlpha.800`}
-											py={`19px`}
+											pt={`20px`}
 											w={`174px`}>
 											Priority
 										</Th>
 										<Th
+											textAlign={`center`}
 											fontFamily={`roboto`}
 											fontWeight={`bold`}
 											fontSize={`24px`}
 											color={`blackAlpha.800`}
-											py={`19px`}
+											pt={`20px`}
 											w={`174px`}>
 											Create
 										</Th>
 										<Th
+											textAlign={`center`}
 											fontFamily={`roboto`}
 											fontWeight={`bold`}
 											fontSize={`24px`}
 											color={`blackAlpha.800`}
-											py={`19px`}
+											pt={`20px`}
 											w={`174px`}>
 											Action
 										</Th>
@@ -174,7 +170,11 @@ const Trash = () => {
 								</Thead>
 								<Tbody>
 									<Tr>
-										<Td fontWeight={`bold`} w={`384px`}></Td>
+										<Td
+											fontWeight={`bold`}
+											w={`384px`}
+											fontSize={"16px"}
+											lineHeight={"39px"}></Td>
 										<Td w={`174px`} h={`56px`} textAlign={`center`}>
 											<Button
 												color={`blackAlpha.800`}
@@ -194,10 +194,22 @@ const Trash = () => {
 											w={`174px`}
 											h={`56px`}
 											color={`#E53E3E`}
-											textAlign={`center`}>
+											textAlign={`center`}
+											fontSize={`16px`}
+											fontWeight={`medium`}
+											lineHeight={`40px`}
+											textShadow={`1px 1px 0 black, -1px -1px 0 black,
+											-1px 1px 0 black, 1px -1px 0 black,
+											0px 1px 0 black,  0 -1px 0 black,
+											-1px 0 0 black, 1px 0 0 black;`}>
 											High
 										</Td>
-										<Td w={`174px`} h={`56px`}>
+										<Td
+											w={`174px`}
+											h={`56px`}
+											fontSize={`14px`}
+											fontWeight={`bold`}
+											lineHeight={`42px`}>
 											2020-11-8 18:55
 										</Td>
 										<Td w={`174px`} h={`56px`}>
@@ -211,7 +223,7 @@ const Trash = () => {
 													borderRadius={`3xl`}
 													fontSize={`18px`}
 													fontWeight={`bold`}
-													fontFamily={`roboto`}
+													fontFamily={`Gothic A1`}
 													p={`0`}>
 													Delete
 												</Button>
@@ -224,17 +236,19 @@ const Trash = () => {
 													borderRadius={`3xl`}
 													fontSize={`18px`}
 													fontWeight={`bold`}
-													fontFamily={`roboto`}
+													fontFamily={`Gothic A1`}
 													p={`0`}>
 													Restore
 												</Button>
-												{/* <EditIcon h={`24px`} w={`24px`} />
-												<DeleteIcon h={`24px`} w={`24px`} /> */}
 											</HStack>
 										</Td>
 									</Tr>
 									<Tr>
-										<Td fontWeight={`bold`} w={`384px`} h={`56px`}>
+										<Td
+											fontWeight={`bold`}
+											w={`384px`}
+											fontSize={"16px"}
+											lineHeight={"39px"}>
 											React Todo
 										</Td>
 										<Td w={`174px`} h={`56px`} textAlign={`center`}>
@@ -253,10 +267,23 @@ const Trash = () => {
 											w={`174px`}
 											h={`56px`}
 											color={`#E53E3E`}
-											textAlign={`center`}>
+											textAlign={`center`}
+											fontSize={`16px`}
+											fontWeight={`middle`}
+											lineHeight={`40px`}
+											textShadow={`1px 1px 0 black, -1px -1px 0 black,
+											-1px 1px 0 black, 1px -1px 0 black,
+											0px 1px 0 black,  0 -1px 0 black,
+											-1px 0 0 black, 1px 0 0 black;`}>
 											High
 										</Td>
-										<Td w={`174px`}>2020-11-8 18:55</Td>
+										<Td
+											w={`174px`}
+											fontSize={`14px`}
+											fontWeight={`bold`}
+											lineHeight={`42px`}>
+											2020-11-8 18:55
+										</Td>
 										<Td w={`174px`}>
 											<HStack mx={`auto`}>
 												<Button
@@ -285,13 +312,15 @@ const Trash = () => {
 													p={`0`}>
 													Restore
 												</Button>
-												{/* <EditIcon h={`24px`} w={`24px`} />
-												<DeleteIcon h={`24px`} w={`24px`} /> */}
 											</HStack>
 										</Td>
 									</Tr>
 									<Tr>
-										<Td fontWeight={`bold`} w={`384px`}>
+										<Td
+											fontWeight={`bold`}
+											w={`384px`}
+											fontSize={"16px"}
+											lineHeight={"39px"}>
 											Firebase Hosting
 										</Td>
 										<Td w={`174px`} textAlign={`center`} h={`56px`}>
@@ -310,10 +339,23 @@ const Trash = () => {
 											w={`174px`}
 											textAlign={`center`}
 											h={`56px`}
-											color={`#C6F6D5`}>
+											color={`#C6F6D5`}
+											fontSize={`16px`}
+											fontWeight={`medium`}
+											lineHeight={`40px`}
+											textShadow={`1px 1px 0 black, -1px -1px 0 black,
+											-1px 1px 0 black, 1px -1px 0 black,
+											0px 1px 0 black,  0 -1px 0 black,
+											-1px 0 0 black, 1px 0 0 black;`}>
 											Middle
 										</Td>
-										<Td w={`174px`}>2020-11-8 18:55</Td>
+										<Td
+											w={`174px`}
+											fontSize={`14px`}
+											fontWeight={`bold`}
+											lineHeight={`42px`}>
+											2020-11-8 18:55
+										</Td>
 										<Td w={`174px`}>
 											<HStack mx={`auto`}>
 												<Button
@@ -342,13 +384,11 @@ const Trash = () => {
 													p={`0`}>
 													Restore
 												</Button>
-												{/* <EditIcon h={`24px`} w={`24px`} />
-												<DeleteIcon h={`24px`} w={`24px`} /> */}
 											</HStack>
 										</Td>
 									</Tr>
 									<Tr>
-										<Td w={`384px`}></Td>
+										<Td w={`384px`} fontSize={"16px"} lineHeight={"39px"}></Td>
 										<Td w={`174px`} h={`56px`} textAlign={`center`}>
 											<Button
 												color={`green.50`}
@@ -361,10 +401,27 @@ const Trash = () => {
 												DOING
 											</Button>
 										</Td>
-										<Td w={`174px`} h={`56px`} textAlign={`center`}>
+										<Td
+											color={"white"}
+											w={`174px`}
+											h={`56px`}
+											textAlign={`center`}
+											fontSize={`16px`}
+											fontWeight={`middle`}
+											lineHeight={`40px`}
+											textShadow={`1px 1px 0 black, -1px -1px 0 black,
+											-1px 1px 0 black, 1px -1px 0 black,
+											0px 1px 0 black,  0 -1px 0 black,
+											-1px 0 0 black, 1px 0 0 black;`}>
 											Low
 										</Td>
-										<Td w={`174px`}>2020-11-8 18:55</Td>
+										<Td
+											w={`174px`}
+											fontSize={`14px`}
+											fontWeight={`bold`}
+											lineHeight={`42px`}>
+											2020-11-8 18:55
+										</Td>
 										<Td w={`174px`}>
 											<HStack mx={`auto`}>
 												<Button
@@ -393,13 +450,11 @@ const Trash = () => {
 													p={`0`}>
 													Restore
 												</Button>
-												{/* <EditIcon h={`24px`} w={`24px`} />
-												<DeleteIcon h={`24px`} w={`24px`} /> */}
 											</HStack>
 										</Td>
 									</Tr>
 									<Tr>
-										<Td w={`384px`}></Td>
+										<Td w={`384px`} fontSize={"16px"} lineHeight={"39px"}></Td>
 										<Td w={`174px`} h={`56px`} textAlign={`center`}>
 											<Button
 												color={`blackAlpha.800`}
@@ -416,10 +471,23 @@ const Trash = () => {
 											w={`174px`}
 											textAlign={`center`}
 											h={`56px`}
-											color={`#C6F6D5`}>
+											color={`#C6F6D5`}
+											fontSize={`16px`}
+											fontWeight={`medium`}
+											lineHeight={`40px`}
+											textShadow={`1px 1px 0 black, -1px -1px 0 black,
+											-1px 1px 0 black, 1px -1px 0 black,
+											0px 1px 0 black,  0 -1px 0 black,
+											-1px 0 0 black, 1px 0 0 black;`}>
 											Middle
 										</Td>
-										<Td w={`174px`}>2020-11-8 18:55</Td>
+										<Td
+											w={`174px`}
+											fontSize={`14px`}
+											fontWeight={`bold`}
+											lineHeight={`42px`}>
+											2020-11-8 18:55
+										</Td>
 										<Td w={`174px`}>
 											<HStack mx={`auto`}>
 												<Button
@@ -448,13 +516,11 @@ const Trash = () => {
 													p={`0`}>
 													Restore
 												</Button>
-												{/* <EditIcon h={`24px`} w={`24px`} />
-												<DeleteIcon h={`24px`} w={`24px`} /> */}
 											</HStack>
 										</Td>
 									</Tr>
 									<Tr>
-										<Td w={`384px`}></Td>
+										<Td w={`384px`} fontSize={"16px"} lineHeight={"39px"}></Td>
 										<Td w={`174px`} textAlign={`center`} h={`56px`}>
 											<Button
 												color={`green.50`}
@@ -467,10 +533,27 @@ const Trash = () => {
 												DOING
 											</Button>
 										</Td>
-										<Td w={`174px`} h={`56px`} textAlign={`center`}>
+										<Td
+											color={"white"}
+											w={`174px`}
+											h={`56px`}
+											textAlign={`center`}
+											fontSize={`16px`}
+											fontWeight={`medium`}
+											lineHeight={`40px`}
+											textShadow={`1px 1px 0 black, -1px -1px 0 black,
+											-1px 1px 0 black, 1px -1px 0 black,
+											0px 1px 0 black,  0 -1px 0 black,
+											-1px 0 0 black, 1px 0 0 black;`}>
 											Low
 										</Td>
-										<Td w={`174px`}>2020-11-8 18:55</Td>
+										<Td
+											w={`174px`}
+											fontSize={`14px`}
+											fontWeight={`bold`}
+											lineHeight={`42px`}>
+											2020-11-8 18:55
+										</Td>
 										<Td w={`174px`}>
 											<HStack mx={`auto`}>
 												<Button
@@ -499,8 +582,6 @@ const Trash = () => {
 													p={`0`}>
 													Restore
 												</Button>
-												{/* <EditIcon h={`24px`} w={`24px`} />
-												<DeleteIcon h={`24px`} w={`24px`} /> */}
 											</HStack>
 										</Td>
 									</Tr>
@@ -518,7 +599,7 @@ const Trash = () => {
 								alignItems={`center`}
 								justifyContent={`space-between`}
 								w={`352px`}
-								p={`12px`}>
+								pt={`96px`}>
 								<Previous>
 									<ChevronLeftIcon />
 								</Previous>
