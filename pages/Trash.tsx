@@ -1,4 +1,4 @@
-import { Layout } from "../components/Layout";
+import { useState } from "react";
 
 import {
 	DeleteIcon,
@@ -34,7 +34,7 @@ import {
 	ButtonProps,
 } from "@chakra-ui/react";
 
-import { useState } from "react";
+import { Layout } from "../components/Layout";
 
 import {
 	Paginator,
@@ -44,16 +44,7 @@ import {
 	usePaginator,
 } from "chakra-paginator";
 
-const Top = () => {
-	const [input, setInput] = useState("Text");
-	const [selectOne, setSelectOne] = useState("high");
-	const [selectTwo, setSelectTwo] = useState("low");
-	const [selectThree, setSelectThree] = useState("middle");
-	const [selectFour, setSelectFour] = useState("high");
-	const [selectFive, setSelectFive] = useState("high");
-	const [selectSix, setSelectSix] = useState("low");
-	const [buttonOne, setbuttonOne] = useState("NOT STARTED");
-
+const Trash = () => {
 	const pagesQuantity = 5;
 	const { currentPage, setCurrentPage } = usePaginator({
 		initialState: { currentPage: 1 },
@@ -79,10 +70,9 @@ const Top = () => {
 		w: 7,
 		bg: "green.200",
 	};
-
 	return (
-		<Layout title="TOP">
-			<Container mt={`16px`}>
+		<Layout title="Trash">
+			<Container>
 				<Center>
 					<VStack>
 						<Flex w={`1080px`} mb={`33px`}>
@@ -93,47 +83,14 @@ const Top = () => {
 									lineHeight="33px"
 									color="blackAlpha.800"
 									mb={`15px`}>
-									TODO LIST
+									TRASH
 								</Text>
-								<Flex w={`624px`}>
-									<Text fontSize={`18px`} fontWeight={`bold`} w={`165px`}>
-										SEARCH
-									</Text>
-									<Text fontSize={`18px`} fontWeight={`bold`} w={`160px`}>
-										STATUS
-									</Text>
-									<Text fontSize={`18px`} fontWeight={`bold`}>
-										PRIORITY
-									</Text>
-								</Flex>
 								<Flex>
-									<HStack spacing={4}>
-										<InputGroup>
-											<InputRightElement pointerEvents="none">
-												<SearchIcon color={`gray.300`} />
-											</InputRightElement>
-											<Input
-												value={input}
-												type={`text`}
-												onChange={(e) => setInput(e.target.value)}
-											/>
-										</InputGroup>
-										<Select placeholder="-------">
-											<option value="notStarted">NOT STARTED</option>
-											<option value="doing">DOING</option>
-											<option value="done">DONE</option>
-										</Select>
-										<Select placeholder="-------">
-											<option value="high">High</option>
-											<option value="middle">Middle</option>
-											<option value="low">Low</option>
-										</Select>
-									</HStack>
 									<Button
 										color={`blackAlpha.800`}
 										variant={`outline`}
-										bgColor={`blackAlpha.500`}
-										w={`104px`}
+										bgColor={`red.500`}
+										w={`112px`}
 										h={`40px`}
 										borderRadius={`3xl`}
 										borderColor={`black.800`}
@@ -141,42 +98,37 @@ const Top = () => {
 										fontFamily={`roboto`}
 										fontWeight={`bold`}
 										ml={`24px`}>
-										RESET
+										Delete all
+									</Button>
+									<Button
+										color={`blackAlpha.800`}
+										variant={`outline`}
+										bgColor={`blue.300`}
+										w={`112px`}
+										h={`40px`}
+										borderRadius={`3xl`}
+										borderColor={`black.800`}
+										fontSize={`18px`}
+										fontFamily={`roboto`}
+										fontWeight={`bold`}
+										ml={`24px`}>
+										Resotre all
+									</Button>
+									<Button
+										color={`blackAlpha.800`}
+										variant={`outline`}
+										bgColor={`green.300`}
+										w={`112px`}
+										h={`40px`}
+										borderRadius={`3xl`}
+										borderColor={`black.800`}
+										fontSize={`18px`}
+										fontFamily={`roboto`}
+										fontWeight={`bold`}
+										ml={`24px`}>
+										Back
 									</Button>
 								</Flex>
-							</Stack>
-							<Spacer />
-							<Stack spacing={`16px`} direction="row" align="center">
-								<IconButton
-									bgColor="yellow.300"
-									aria-label="Delete"
-									icon={<DeleteIcon />}
-									borderRadius={`full`}
-									variant={`outline`}
-									borderColor={`gray.400`}
-									h={`40px`}
-									w={`40px`}
-								/>
-								<IconButton
-									aria-label="Edit"
-									bgColor="pink.100"
-									h={`40px`}
-									w={`40px`}
-									borderRadius={`full`}
-									variant={`outline`}
-									borderColor={`gray.400`}
-									icon={<EditIcon />}
-								/>
-								<IconButton
-									aria-label="Edit"
-									bgColor="green.300"
-									h={`40px`}
-									w={`40px`}
-									borderRadius={`full`}
-									variant={`outline`}
-									borderColor={`gray.400`}
-									icon={<ExternalLinkIcon />}
-								/>
 							</Stack>
 						</Flex>
 						<TableContainer w={`1080px`}>
@@ -255,26 +207,10 @@ const Top = () => {
 												fontWeight={`bold`}
 												fontFamily={`roboto`}
 												p={`0`}>
-												{buttonOne}
+												{/* {buttonOne} */}
 											</Button>
 										</Td>
-										<Td w={`139.2px`} p={`0`} lineHeight={`56px`}>
-											<Select
-												placeholder="-------"
-												h={`40px`}
-												w={`112px`}
-												mx={`auto`}
-												borderColor={`red.500`}
-												borderRadius={`10px`}
-												value={selectOne}
-												onChange={(e) => {
-													setSelectOne(e.target.value);
-												}}>
-												<option value="high">High</option>
-												<option value="middle">Middle</option>
-												<option value="low">Low</option>
-											</Select>
-										</Td>
+										<Td w={`139.2px`} p={`0`} lineHeight={`56px`}></Td>
 										<Td w={`139.2px`}>2020-11-8 18:55</Td>
 										<Td w={`139.2px`}>2020-11-8 18:55</Td>
 										<Td w={`139.2px`}>
@@ -302,23 +238,7 @@ const Top = () => {
 												DOING
 											</Button>
 										</Td>
-										<Td w={`139.2px`} p={`0`} lineHeight={`56px`}>
-											<Select
-												placeholder="-------"
-												h={`40px`}
-												w={`112px`}
-												mx={`auto`}
-												borderColor={`red.500`}
-												borderRadius={`10px`}
-												value={selectTwo}
-												onChange={(e) => {
-													setSelectTwo(e.target.value);
-												}}>
-												<option value="high">High</option>
-												<option value="middle">Middle</option>
-												<option value="low">Low</option>
-											</Select>
-										</Td>
+										<Td w={`139.2px`} p={`0`} lineHeight={`56px`}></Td>
 										<Td>2020-11-8 18:55</Td>
 										<Td>2020-11-8 18:55</Td>
 										<Td>
@@ -346,23 +266,7 @@ const Top = () => {
 												DONE
 											</Button>
 										</Td>
-										<Td w={`139.2px`} p={`0`} lineHeight={`56px`}>
-											<Select
-												placeholder="-------"
-												h={`40px`}
-												w={`112px`}
-												mx={`auto`}
-												borderColor={`red.500`}
-												borderRadius={`10px`}
-												value={selectThree}
-												onChange={(e) => {
-													setSelectThree(e.target.value);
-												}}>
-												<option value="high">High</option>
-												<option value="middle">Middle</option>
-												<option value="low">Low</option>
-											</Select>
-										</Td>
+										<Td w={`139.2px`} p={`0`} lineHeight={`56px`}></Td>
 										<Td>2020-11-8 18:55</Td>
 										<Td>2020-11-8 18:55</Td>
 										<Td>
@@ -390,23 +294,7 @@ const Top = () => {
 												DOING
 											</Button>
 										</Td>
-										<Td w={`139.2px`} p={`0`} lineHeight={`56px`}>
-											<Select
-												placeholder="-------"
-												h={`40px`}
-												w={`112px`}
-												mx={`auto`}
-												borderColor={`red.500`}
-												borderRadius={`10px`}
-												value={selectFour}
-												onChange={(e) => {
-													setSelectFour(e.target.value);
-												}}>
-												<option value="high">High</option>
-												<option value="middle">Middle</option>
-												<option value="low">Low</option>
-											</Select>
-										</Td>
+										<Td w={`139.2px`} p={`0`} lineHeight={`56px`}></Td>
 										<Td>2020-11-8 18:55</Td>
 										<Td>2020-11-8 18:55</Td>
 										<Td>
@@ -434,23 +322,7 @@ const Top = () => {
 												DONE
 											</Button>
 										</Td>
-										<Td w={`139.2px`} p={`0`} lineHeight={`56px`}>
-											<Select
-												placeholder="-------"
-												h={`40px`}
-												w={`112px`}
-												mx={`auto`}
-												borderColor={`red.500`}
-												borderRadius={`10px`}
-												value={selectFive}
-												onChange={(e) => {
-													setSelectFive(e.target.value);
-												}}>
-												<option value="high">High</option>
-												<option value="middle">Middle</option>
-												<option value="low">Low</option>
-											</Select>
-										</Td>
+										<Td w={`139.2px`} p={`0`} lineHeight={`56px`}></Td>
 										<Td>2020-11-8 18:55</Td>
 										<Td>2020-11-8 18:55</Td>
 										<Td>
@@ -478,23 +350,7 @@ const Top = () => {
 												DOING
 											</Button>
 										</Td>
-										<Td w={`139.2px`} p={`0`} lineHeight={`56px`}>
-											<Select
-												placeholder="-------"
-												h={`40px`}
-												w={`112px`}
-												mx={`auto`}
-												borderColor={`red.500`}
-												borderRadius={`10px`}
-												value={selectSix}
-												onChange={(e) => {
-													setSelectSix(e.target.value);
-												}}>
-												<option value="high">High</option>
-												<option value="middle">Middle</option>
-												<option value="low">Low</option>
-											</Select>
-										</Td>
+										<Td w={`139.2px`} p={`0`} lineHeight={`56px`}></Td>
 										<Td>2020-11-8 18:55</Td>
 										<Td>2020-11-8 18:55</Td>
 										<Td>
@@ -535,4 +391,4 @@ const Top = () => {
 	);
 };
 
-export default Top;
+export default Trash;
