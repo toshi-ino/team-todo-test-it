@@ -59,7 +59,7 @@ export default function Create() {
     }
   };
 
-  const createOnSubmit: SubmitHandler<FormInput> = ({
+  const onSubmit: SubmitHandler<FormInput> = ({
     title,
     detail,
     priority,
@@ -108,13 +108,14 @@ export default function Create() {
               borderWidth="1px"
               borderColor="blackAlpha.800"
               borderRadius="50px"
+              onClick={() => router.push("/Top")}
             >
               Back
             </Button>
           </Flex>
           <form
             style={{ width: "100%" }}
-            onSubmit={handleSubmit(createOnSubmit)}
+            onSubmit={handleSubmit(onSubmit)}
           >
             <FormControl isInvalid={errors.title ? true : false}>
               <FormLabel
