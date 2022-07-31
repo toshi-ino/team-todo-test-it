@@ -30,16 +30,22 @@ type FormInput = {
 };
 
 type todoList = {
-  id: null | string;
+  id: null | number;
   title: null | string;
   detail: null | string;
+  // 0:NOT STARTED、1:DOING、2:DONE
   status: null | 0 | 1 | 2;
   priority: null | string;
   createAt: null | Date;
+  // all:TOPページ等に表示されるTODO LIST、draft:DRAFTページ、trash:trashページ
+  category: "all" | "draft" | "trash";
 };
+
+type category = "all" | "draft" | "trash";
 
 export default function Create() {
   const [value, setValue] = useState("High");
+  const [category, setCategory] = useState<category>("all");
   const [todoList, setTodoList] = useRecoilState<any>(todoListState);
   const {
     handleSubmit,
@@ -59,24 +65,24 @@ export default function Create() {
     }
   };
 
-  const onSubmit: SubmitHandler<FormInput> = ({
-    title,
-    detail,
-    priority,
-  }) => {
+  const onSubmit: SubmitHandler<FormInput> = ({ title, detail, priority }) => {
     setTodoList((oldTodoList: Array<todoList>) => [
       ...oldTodoList,
       {
         id: getId(),
         title,
         detail,
-        // 0:NOT STARTED
         status: 0,
         priority,
         createAt: new Date(),
+        category,
       },
     ]);
-    router.push("/Top");
+    if (category === "draft") {
+      router.push("/draft");
+    } else {
+      router.push("/Top");
+    }
   };
 
   return (
@@ -113,10 +119,7 @@ export default function Create() {
               Back
             </Button>
           </Flex>
-          <form
-            style={{ width: "100%" }}
-            onSubmit={handleSubmit(onSubmit)}
-          >
+          <form style={{ width: "100%" }} onSubmit={handleSubmit(onSubmit)}>
             <FormControl isInvalid={errors.title ? true : false}>
               <FormLabel
                 m="0"
@@ -236,10 +239,12 @@ export default function Create() {
                 borderWidth="1px"
                 borderColor="blackAlpha.800"
                 borderRadius="50px"
+                onClick={() => setCategory("all")}
               >
                 CREATE
               </Button>
               <Button
+                type="submit"
                 w="112px"
                 h="40px"
                 // Flexにmt:8pxがあるため、Buttonのmtは4pxに設定
@@ -252,6 +257,7 @@ export default function Create() {
                 borderWidth="1px"
                 borderColor="blackAlpha.800"
                 borderRadius="50px"
+                onClick={() => setCategory("draft")}
               >
                 DRAFT
               </Button>
