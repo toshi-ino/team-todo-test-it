@@ -17,8 +17,11 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { useRecoilState } from "recoil";
+import { useRouter } from "next/router";
 
 import { Header } from "../components/Header";
+import { todoListState } from "../constants/atom";
 
 type FormInput = {
   title: string;
@@ -26,15 +29,55 @@ type FormInput = {
   priority: string;
 };
 
+type todoList = {
+  id: null | string;
+  title: null | string;
+  detail: null | string;
+  status: null | 0 | 1 | 2;
+  priority: null | string;
+  createAt: null | Date;
+};
+
 export default function Create() {
   const [value, setValue] = useState("High");
+  const [todoList, setTodoList] = useRecoilState<any>(todoListState);
   const {
     handleSubmit,
     register,
     formState: { errors },
   } = useForm<FormInput>();
+  const router = useRouter();
 
-  const onSubmit: SubmitHandler<FormInput> = (data) => console.log(data);
+  // idを取得する関数
+  const getId = () => {
+    if (todoList.length === 0) {
+      // todoListが空なら、1を返す
+      return 1;
+    } else {
+      // todoListが空でないなら、配列の最後に入っているidに+1した値を返す
+      return todoList[todoList.length - 1].id + 1;
+    }
+  };
+
+  const createOnSubmit: SubmitHandler<FormInput> = ({
+    title,
+    detail,
+    priority,
+  }) => {
+    setTodoList((oldTodoList: Array<todoList>) => [
+      ...oldTodoList,
+      {
+        id: getId(),
+        title,
+        detail,
+        // 0:NOT STARTED
+        status: 0,
+        priority,
+        createAt: new Date(),
+      },
+    ]);
+    router.push("/Top");
+  };
 
   return (
     <>
@@ -69,7 +112,10 @@ export default function Create() {
               Back
             </Button>
           </Flex>
-          <form style={{ width: "100%" }} onSubmit={handleSubmit(onSubmit)}>
+          <form
+            style={{ width: "100%" }}
+            onSubmit={handleSubmit(createOnSubmit)}
+          >
             <FormControl isInvalid={errors.title ? true : false}>
               <FormLabel
                 m="0"
@@ -93,7 +139,7 @@ export default function Create() {
                 borderColor="blackAlpha.800"
                 borderRadius="10px"
                 {...register("title", {
-                  required: "文字を入力してください",
+                  required: "TITLEは必須です",
                 })}
               />
               <FormErrorMessage>
@@ -122,7 +168,7 @@ export default function Create() {
                 borderColor="blackAlpha.800"
                 borderRadius="10px"
                 {...register("detail", {
-                  required: "文字を入力してください",
+                  required: "DETAILは必須です",
                 })}
               />
               <FormErrorMessage>
