@@ -44,6 +44,8 @@ import {
 	usePaginator,
 } from "chakra-paginator";
 
+import Link from 'next/link'
+
 const Top = () => {
 	const [input, setInput] = useState("Text");
 	const [selectOne, setSelectOne] = useState("high");
@@ -235,9 +237,13 @@ const Top = () => {
 								</Thead>
 								<Tbody>
 									<Tr>
-										<Td fontWeight={`bold`} w={`384px`}>
-											Github
-										</Td>
+										<Link href={{ pathname: '/show'}}>
+											<a>
+												<Td fontWeight={`bold`} w={`384px`}>
+													Github
+												</Td>
+											</a>
+										</Link>
 										<Td
 											w={`139.2px`}
 											p={`0`}

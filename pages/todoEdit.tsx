@@ -15,6 +15,7 @@ import {
 } from "@chakra-ui/react";
 
 import { Header } from "../components/Header";
+import Link from 'next/link'
 
 export default function TodoEdit() {
   return (
@@ -35,20 +36,22 @@ export default function TodoEdit() {
               EDIT TODO
             </Text>
             <Spacer />
-            <Button
-              w="112px"
-              h="40px"
-              mt="8px"
-              fontSize="18px"
-              fontWeight="bold"
-              bg="green.300"
-              color="blackAlpha.800"
-              borderWidth="1px"
-              borderColor="blackAlpha.800"
-              borderRadius="50px"
-            >
-              Back
-            </Button>
+            <Link href={{ pathname: '/Top'}}>
+              <Button
+                w="112px"
+                h="40px"
+                mt="8px"
+                fontSize="18px"
+                fontWeight="bold"
+                bg="green.300"
+                color="blackAlpha.800"
+                borderWidth="1px"
+                borderColor="blackAlpha.800"
+                borderRadius="50px"
+              >
+                Back
+              </Button>
+            </Link>
           </Flex>
           <FormControl>
             <FormLabel
